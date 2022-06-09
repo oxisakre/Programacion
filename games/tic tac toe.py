@@ -107,7 +107,7 @@ class TicTacToe:
             while row > 3 or col > 3 or row == 0 or col == 0:
                 print(f"Player {player} turn")
                 print(self.show_board())
-                print('A number between 1 and 3:')
+                print('A number between 1 and 3!')
                 row, col = list(
                 map(int, input("Enter row and column numbers to fix spot: ").split()))
                 
@@ -116,7 +116,7 @@ class TicTacToe:
             while self.board[row - 1][col - 1] == 'O' or self.board[row - 1][col - 1] == 'X':
                 print(f"Player {player} turn")
                 print(self.show_board())
-                print('The place is occupied: ')
+                print('The place is occupied! ')
                 row, col = list(
                 map(int, input("Enter row and column numbers to fix spot: ").split()))
                 while row > 3 or col > 3 or row == 0 or col == 0:
