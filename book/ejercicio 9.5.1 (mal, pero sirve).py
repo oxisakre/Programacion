@@ -4,7 +4,6 @@ def cantidad():
     frase = ('hola', 'que', 'linda', 'mañana', 'eh')
     p_cadena = []
     
-
     for i in range(5):
         elegir = random.choice(frase)
         p_cadena.append(elegir)

@@ -144,7 +144,7 @@ class TicTacToe:
             # swapping the turn
             player = self.swap_player_turn(player)
 
-            
+        
 
         # showing the final view of board
         print()

@@ -11,15 +11,6 @@ def wc():
             palabras = palabras + len(pala)
             letras += sum(len(palabras) for palabras in pala)
 
-    for i in archivo:
-            caca = i.split()
-            torta += i + len(caca)
-
-    
-    print(torta)
-    
-            
-    
     print(lineas)
     print(palabras)
     print(letras)

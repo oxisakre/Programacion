@@ -4,6 +4,5 @@ def cp():
         for line in archivo1:
             archivo2.write(line)
 
-    print(archivo2)
-
+    
 cp()
