@@ -22,13 +22,19 @@ class Vector:
         multix = self.x * numero
         multiy = self.y * numero
         multiz = self.z * numero
-        return Vector(multix, multiy, multiz) 
+        return Vector(multix, multiy, multiz)
 
+    def producto_interno(self, otro):
+        prodx = self.x * otro.x
+        prody = self.y * otro.y
+        prodz = self.z * otro.z
+        return prodx + prody + prodz
 
 a = Vector(4, 6, 8)
-b = (2, 1, 5, 8)
+b = Vector(2, 1, 5)
 c = 4
 print(a + b)
+print(a.producto_interno(b))
 print(a * c)
 
         
