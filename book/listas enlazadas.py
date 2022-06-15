@@ -72,33 +72,26 @@ class ListaEnlazada:
 
         self.len -= 1
         return dato
-
-    def remove(self, x):
-        """Borra la primera aparición del valor x en la lista.
-        Si x no está en la lista, levanta ValueError"""
-
-        if self.len == 0:
-            raise ValueError("Lista vacía")
-
-        if self.prim.dato == x:
-        # Caso particular: saltear la cabecera de la lista
+    def remove(self, dato):
+        if self.prim == None:
+            return False
+        if self.prim.dato == dato:
             self.prim = self.prim.prox
         else:
-        # Buscar el nodo anterior al que contiene a x (n_ant)
-            n_ant = self.prim
-            n_act = n_ant.prox
-        while n_act is not None and n_act.dato != x:
-            n_ant = n_act
-            n_act = n_ant.prox
+            current = self.prim
+            while current.prox is not None and current.prox.dato != dato:     ### esta es la linea es la modificada
+                current = current.prox
+            
+            if current.prox is None:  ### si el siguiente elemento era el ultimo, entonces no está el elemento, devolvemos falso
+                return False
+            
+            deletedNode = current.prox
+            current.prox = deletedNode.prox
 
-        if n_act == None:
-            raise ValueError("El valor no está en la lista.")
+            self.len = self.len - 1
+            return True
 
-        # Descartar el nodo
-        n_ant.prox = n_act.prox
-
-        self.len -= 1
-
+        
     def insert(self, i, x):
         """Inserta el elemento x en la posición i.
         Si la posición es inválida, levanta IndexError"""
@@ -124,9 +117,28 @@ class ListaEnlazada:
 
         self.len += 1
 
+    def extend(self, lista):
+        minodo = lista.prim
+        
+        if self.len == 0:
+            self.prim = minodo
+        else:
+            Current = self.prim
+            while Current.prox != None:
+                Current = Current.prox
+            Current.prox = minodo
+
+        self.len += lista.len
+
+
+
 milista = ListaEnlazada()
 milista.append("Bananas")
 milista.append("Peras")
-milista.append(2)
+
 milista.remove("Bananas")
+milista2 = ListaEnlazada()
+milista2.append("Agusu")
+milista2.append("Romina")
+milista.extend(milista2)
 print(milista)
