@@ -90,7 +90,33 @@ class ListaEnlazada:
 
             self.len = self.len - 1
             return True
+    def remove_todos(self, dato):
+        current = second = self.prim
+        contador = 0
+        if second == dato:
+            second = second.prox
+            contador += 1
+        
+        while current is not None:
+            while second.prox is not None:   # check second.next here rather than second
+                if second.prox.dato == dato:   # check second.next.data, not second.data
+                    second.prox = second.prox.prox # cut second.next out of the list
+                    contador += 1               
+                else:
+                    second = second.prox   # put this line in an else, to avoid skipping items
+            current = second = current.prox
 
+        return print('veces eliminadas del nodo:', contador)
+
+    def duplicar(self, dato):
+        minodo = _Nodo(dato)
+        Current= second = self.prim
+        
+        if Current.dato == dato:
+            minodo.prox = Current.prox
+            Current.prox = minodo
+            self.len +=1
+                
         
     def insert(self, i, x):
         """Inserta el elemento x en la posición i.
@@ -135,10 +161,21 @@ class ListaEnlazada:
 milista = ListaEnlazada()
 milista.append("Bananas")
 milista.append("Peras")
-
-milista.remove("Bananas")
+milista.append("Bananas")
+milista.append("Peras")
+milista.append("Bananas")
+milista.append("Agusu")
+milista.append("Peras")
+milista.append("Bananas")
+milista.append("Peras")
 milista2 = ListaEnlazada()
 milista2.append("Agusu")
 milista2.append("Romina")
+milista.append("Peras")
+milista2.append("Agusu")
+milista.append("Bananas")
+milista.append("Peras")
+milista2.duplicar("Agusu")
 milista.extend(milista2)
+milista.remove_todos("Bananas")
 print(milista)
