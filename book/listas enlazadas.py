@@ -93,7 +93,7 @@ class ListaEnlazada:
     def remove_todos(self, dato):
         current = second = self.prim
         contador = 0
-        if second == dato:
+        if second == dato:     # no remueve el primero vaya a saber dios por que
             second = second.prox
             contador += 1
         
@@ -109,13 +109,18 @@ class ListaEnlazada:
         return print('veces eliminadas del nodo:', contador)
 
     def duplicar(self, dato):
-        minodo = _Nodo(dato)
-        Current= second = self.prim
         
-        if Current.dato == dato:
-            minodo.prox = Current.prox
-            Current.prox = minodo
-            self.len +=1
+        current = self.prim
+    
+        while current is not None:
+            if current.dato == dato:  #lo hace solo una vez y con el while explota
+                minodo = _Nodo(dato)
+                minodo.prox = current.prox
+                current.prox = minodo
+                current = minodo.prox
+                self.len +=1
+            else:
+                current = current.prox
                 
         
     def insert(self, i, x):
@@ -159,23 +164,11 @@ class ListaEnlazada:
 
 
 milista = ListaEnlazada()
-milista.append("Bananas")
-milista.append("Peras")
-milista.append("Bananas")
-milista.append("Peras")
+milista.append("Agusu")
 milista.append("Bananas")
 milista.append("Agusu")
 milista.append("Peras")
-milista.append("Bananas")
-milista.append("Peras")
-milista2 = ListaEnlazada()
-milista2.append("Agusu")
-milista2.append("Romina")
-milista.append("Peras")
-milista2.append("Agusu")
-milista.append("Bananas")
-milista.append("Peras")
-milista2.duplicar("Agusu")
-milista.extend(milista2)
-milista.remove_todos("Bananas")
+milista.append("Agusu")
+milista.append("Agusu")
+milista.duplicar("Agusu")
 print(milista)
