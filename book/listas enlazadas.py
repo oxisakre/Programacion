@@ -168,6 +168,17 @@ class ListaEnlazada:
                     lista.len += 1
             ptr = ptr.prox
         return lista
+
+    def reversa(self):
+        anterior = None
+        current = self.prim
+        while current is not None:
+            siguiente = current.prox
+            current.prox = anterior
+            anterior = current
+            current = siguiente
+        self.prim = anterior
+       
     
 
 
@@ -193,5 +204,6 @@ milista.append(7)
 milista.append(3)
 milista.append(37)
 milista.append(40)
-print(milista.countPrime())
+milista.reversa()
+print(milista)
 
