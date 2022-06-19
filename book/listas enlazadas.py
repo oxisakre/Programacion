@@ -1,3 +1,4 @@
+from primo import esprimo
 class _Nodo:
     
     def __init__(self, dato):
@@ -147,6 +148,28 @@ class ListaEnlazada:
         n_ant.prox = nuevo
 
         self.len += 1
+    
+    def countPrime(self):
+     
+        lista = ListaEnlazada()
+        ptr = self.prim
+        current = lista.prim
+
+        while ptr != None:
+            # If current node is prime
+            if esprimo(ptr.dato):
+                if lista.len == 0:
+                    lista.prim = _Nodo(ptr.dato)
+                    current = lista.prim
+                    lista.len += 1
+                else:
+                    current.prox = _Nodo(ptr.dato)
+                    current = current.prox
+                    lista.len += 1
+            ptr = ptr.prox
+        return lista
+    
+
 
     def extend(self, lista):
         minodo = lista.prim
@@ -164,11 +187,11 @@ class ListaEnlazada:
 
 
 milista = ListaEnlazada()
-milista.append("Agusu")
-milista.append("Bananas")
-milista.append("Agusu")
-milista.append("Peras")
-milista.append("Agusu")
-milista.append("Agusu")
-milista.duplicar("Agusu")
-print(milista)
+milista.append(5)
+milista.append(8)
+milista.append(7)
+milista.append(3)
+milista.append(37)
+milista.append(40)
+print(milista.countPrime())
+

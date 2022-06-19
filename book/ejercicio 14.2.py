@@ -2,6 +2,11 @@ class Punto:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+    
+    def desplazar(self, dx, dy):
+        """Desplaza el punto según dx y dy."""
+        self.x += dx
+        self.y += dy
 
         
 class Rectangulo:
@@ -22,10 +27,7 @@ class Rectangulo:
     def central(self):
         return ((self.sudeste.x + self.noroeste.x)/2, (self.noroeste.y + self.sudeste.y)/2)
 
-    def desplazar(self, dx, dy):
-        """Desplaza el punto según dx y dy."""
-        self.x += dx
-        self.y += dy
+   
 
 p1 = Rectangulo(Punto(2, 2), Punto(8, -2))
 print(p1.central())
