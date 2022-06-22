@@ -4,7 +4,7 @@ class stack:
         self.top = None
         self.stack = [] 
 
-    def getToP(self):
+    def getTop(self):
         return self.top
 
     def add(self, element):
@@ -21,3 +21,13 @@ class stack:
 
     def __len__(self):
         return len(self.stack)
+
+mistack = stack()
+mistack.add(1)
+mistack.add(2)
+mistack.add(3)
+mistack.add(4)
+mistack.add(5)
+mistack.remove()
+mistack.remove()
+print(mistack)
