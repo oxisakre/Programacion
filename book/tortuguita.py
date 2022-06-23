@@ -11,6 +11,6 @@ def tortuga():
         turtle.right(144)
         turtle.end_fill()
         turtle.done()
-        turtle.done()
+        
 
 tortuga()
