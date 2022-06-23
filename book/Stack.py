@@ -13,8 +13,13 @@ class stack:
         
 
     def remove(self):
+        if len(self.stack) == 0:
+            raise IndexError("La pila está vacía")
+        
         self.stack.pop() #elimina el ultimo elemento
         self.top = self.stack[-1]
+
+        
 
     def __str__(self):
         return str(self.stack)
@@ -23,11 +28,7 @@ class stack:
         return len(self.stack)
 
 mistack = stack()
-mistack.add(1)
-mistack.add(2)
-mistack.add(3)
-mistack.add(4)
-mistack.add(5)
+
 mistack.remove()
-mistack.remove()
+
 print(mistack)
