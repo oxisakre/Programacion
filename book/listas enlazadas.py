@@ -179,9 +179,6 @@ class ListaEnlazada:
             current = siguiente
         self.prim = anterior
        
-    
-
-
     def extend(self, lista):
         minodo = lista.prim
         
