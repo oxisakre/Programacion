@@ -6,4 +6,6 @@ def bisiesto():
     else:
         print('no es bisiesto')
 
+    print(12//10)
+
 bisiesto()
