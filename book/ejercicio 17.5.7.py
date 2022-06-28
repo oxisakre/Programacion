@@ -8,4 +8,4 @@ def combinaciones(letras, k, palabra=""):
         combinaciones(letras, k, palabra + letra)
 
 
-combinaciones(('a', 'b', 'c'), 4)
+combinaciones(('a', 'b', 'c'), 1)
