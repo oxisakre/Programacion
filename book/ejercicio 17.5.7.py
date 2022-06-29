@@ -1,6 +1,4 @@
 def combinaciones(letras, k, palabra=""):
-    if k == 0:
-        return
     if len(palabra) == k:
         print(palabra, end=' ')
         return
@@ -8,4 +6,4 @@ def combinaciones(letras, k, palabra=""):
         combinaciones(letras, k, palabra + letra)
 
 
-combinaciones(('a', 'b', 'c'), 1)
+combinaciones(('a', 'b', 'c'), 0)
