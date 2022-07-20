@@ -35,7 +35,7 @@ def greeting(self):
     return f'My name is {self.name} and I am {self.age} and my balance is {self.balance}'
 
 
-# init user object
+#init user object
 brad = User('Brad Traversy', 'brad@gmail.com', 37)
 # Init customer object
 janet = Customer('Janet Johnson', 'janet@yahoo.com', 25)
