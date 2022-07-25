@@ -1,7 +1,0 @@
-from django.shortcuts import render
-
-
-class Gameview(View) :
-    def get(self, request, guess) :
-        x = {'guess' : int(guess) }
-        return render(request, 'django/cond2.html', x)
