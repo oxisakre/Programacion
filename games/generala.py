@@ -42,7 +42,7 @@ class generala:
         print(Lista_dados)
         
         for j in Numeros:
-            table.add_row([Numero[p], [p]])
+            table.add_row([NumeroS[p], [p]])
             p += 1
             
         random.randint
