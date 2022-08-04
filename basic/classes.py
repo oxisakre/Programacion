@@ -1,5 +1,3 @@
-
-
 # Create class
 import email
 
