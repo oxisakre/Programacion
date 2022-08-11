@@ -27,7 +27,7 @@ def astrologia():
         astro_signo = 'Libra' if (dia < 23) else 'Scorpio'
     elif mes == 'noviembre':
         astro_signo = 'Scorpio' if (dia < 22) else 'Sagitario'
-    print("Tu signo es:",astro_signo)  
+    print("Tu signo es: ",astro_signo)  
         
 
 
