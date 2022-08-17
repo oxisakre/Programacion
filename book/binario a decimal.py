@@ -7,6 +7,6 @@ def binary():
             
             
 
-    print(int(binario, 2))
+    print(int(binario, base=2))
 
 binary()
