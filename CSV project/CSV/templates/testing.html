@@ -1,0 +1,22 @@
+<!-- At the top of your page add load static -->
+{% load static %}
+
+<!-- In the body of the HTML page add this and continue adding all Fields. I have provided three example below -->
+ <h1 class='list'>List View</h1>
+
+       {% for k in information  %}
+        <table border="1">
+            <thead>
+                <th>person</th>
+                <th>gender</th>
+                <th>birthdate</th>
+            </thead>
+            <tr>
+                <td>{{k.person}}</td>
+                <td>{{k.gender}}</td>
+                <td>{{k.birthdate}}</td>
+            
+            </tr>
+            
+            {% endfor %}
+        </table>

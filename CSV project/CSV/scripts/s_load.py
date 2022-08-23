@@ -29,5 +29,5 @@ def run():
             #r = Membership.INSTRUCTOR
         #m = Membership(role=r, person=p, course=c)
         
-        i = Identification(person = p, genre = g, birthdate = row[2])
+        i = Identification(person = p, gender = g, birthdate = row[2])
         i.save()
