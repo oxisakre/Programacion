@@ -1,5 +1,4 @@
-<head>
-    <style>
+
     ul {
       list-style-type: none;
       margin: 0;
@@ -80,24 +79,3 @@
     .dropdown:hover .dropdown-content {
     display: block;
     }
-    </style>
-    </head>
-    <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="table">Table</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <div class="dropdown">
-        <button class="dropbtn">Dropdown
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-    </div>
-    </ul>
-    
-    </body>
-    </html>
-    
