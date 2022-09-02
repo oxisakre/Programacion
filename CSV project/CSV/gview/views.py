@@ -15,5 +15,9 @@ class idListView(View):
         data = Person.objects.all()
         return render(request, 'table.html', {'data': data})
 
+class Alphabetically(View):
+    def get(self, request):
+        names = Person.objects.order_by('name')
+        return render(request, 'alphabetical.html', {'names': names,})
 
     

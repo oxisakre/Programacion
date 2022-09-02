@@ -1,5 +1,6 @@
-
-    ul {
+<html>
+<style>
+        ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -24,7 +25,7 @@
     }
     .navbar {
   overflow: hidden;
-  background-color: #333;
+  
     }
 
     .navbar a {
@@ -79,3 +80,49 @@
     .dropdown:hover .dropdown-content {
     display: block;
     }
+    .navbar-header {
+      background-color: #333;
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+</style>
+<head>
+<title>CSV Reader</title>
+<body>
+<div class="container">
+<nav class="navbar navbar-dfault navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          CSV Reader
+        </div>
+        <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="table">Table</a></li>
+        <li><a href="alphabetical">Alphabetical</a></li>
+        <div class="dropdown">
+            <button class="dropbtn">Plot
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Gender</a>
+              <a href="#">Age</a>
+              <a href="#">Link 3</a>
+            </div>
+        </div>
+        </ul>
+        </li>
+    </ul>
+</body>
+</head> 
+</html>
