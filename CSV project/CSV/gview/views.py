@@ -13,7 +13,7 @@ class MainView(View):
 class idListView(View):
     def get(self, request):
         data = Person.objects.all()
-        return render(request, 'testing.html', {'data': data})
+        return render(request, 'table.html', {'data': data})
 
 
     
