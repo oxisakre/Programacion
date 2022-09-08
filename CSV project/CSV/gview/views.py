@@ -3,8 +3,24 @@ from gview.models import Person
 
 from django.views import View
 from django.shortcuts import render
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
+def main(request):
+    context={}
+
+    if request.method == 'POST':
+        uploaded_file = request.FILES['load']
+
+        if uploaded_file.name.endswith('.csv'):
+            #save the file in data folder
+            savefile = FileSystemStorage()
+
+            name = savefile.save(uploaded_file.name, uploaded_file)
+            #know where to save the file
+            d = os.getcwd() #current directory of the project
+            file_directory = d+'/data\\'+name
+
 class MainView(View):
     template_name = None
     def get(self, request):
