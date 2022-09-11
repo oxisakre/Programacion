@@ -9,12 +9,33 @@
         border-collapse: collapse;
         
     }
-   
+    .botones {
+        display: flex;
+        flex-direction: column;
+        width: auto ;
+        justify-content: space-between;
+
+    }
+    .botones > a {
+        
+        background-color: #333
+
+    }
+
+    .upper {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        
+    }
+    .upper > * {
+        margin-right: 2rem ;
+    }
     </style>
-    </head>
+</head>
     <font size="2" face="Tahoma" >
     <h1 class='table'></h1>
-
+    <div class="upper">
         <table border="1"; width="25%";>
             <thead>
                 <th>Person</th>
@@ -31,6 +52,13 @@
             
             {% endfor %}
         </table>
+        <div class="botones">
+            <a class="form-submit-button" href="table">Table</a>
+            <a href="alphabetical">Alphabetical</a>
+        </div>
+        
+    </div>
+
     </font>
     </div>
 </html>
