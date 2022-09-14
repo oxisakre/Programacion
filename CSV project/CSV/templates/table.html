@@ -1,4 +1,3 @@
-
 {% load static %}
 {% include 'navbar.html' %}
 <html>
@@ -9,12 +8,12 @@
         border-collapse: collapse;
         
     }
+    
     .botones {
         display: flex;
         flex-direction: column;
         width: auto ;
-        justify-content: space-between;
-
+      
     }
     .botones > a {
         
@@ -36,7 +35,7 @@
     <font size="2" face="Tahoma" >
     <h1 class='table'></h1>
     <div class="upper">
-        <table border="1"; width="25%";>
+        <table class="tabla" border="1"; width="25%";>
             <thead>
                 <th>Person</th>
                 <th>Gender</th>
@@ -55,10 +54,12 @@
         <div class="botones">
             <a class="form-submit-button" href="table">Table</a>
             <a href="alphabetical">Alphabetical</a>
+            <a href="older">Older</a>
+            <a href="younger">Younger</a>
         </div>
         
     </div>
 
     </font>
-    </div>
+    
 </html>

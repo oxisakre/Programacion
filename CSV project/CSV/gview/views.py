@@ -1,6 +1,8 @@
+from dataclasses import dataclass
 from re import template
 from unittest import result
 from gview.models import Person
+import os
 
 from django.views import View
 from django.shortcuts import render, redirect
@@ -8,25 +10,26 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
 
 # Create your views here.
-def main(request):
-    context={}
+class UploadFile(View):
+    def main(request):
+        context={}
 
-    if request.method == 'POST':
-        uploaded_file = request.FILES['load']
+        if request.method == 'POST':
+            uploaded_file = request.FILES['load']
 
-        if uploaded_file.name.endswith('.csv'):
-            #save the file in data folder
-            savefile = FileSystemStorage()
+            if uploaded_file.name.endswith('.csv'):
+                #save the file in data folder
+                savefile = FileSystemStorage()
 
-            name = savefile.save(uploaded_file.name, uploaded_file)
-            #know where to save the file
-            d = os.getcwd() #current directory of the project
-            file_directory = d+'\data\\'+name
-            return redirect(results)
-        else:
-            messages.warning(request, 'File was not uploaded. Please use csv file')
-    
-    return render(request, 'main.html')
+                name = savefile.save(uploaded_file.name, uploaded_file)
+                #know where to save the file
+                d = os.getcwd() #current directory of the project
+                file_directory = d+'\data\\'+name
+                return redirect(results)
+            else:
+                messages.warning(request, 'File was not uploaded. Please use csv file')
+        
+        return render(request, 'main.html')
 
 def results(request):
     return render(request, 'results.html')
@@ -45,6 +48,16 @@ class Alphabetically(View):
     def get(self, request):
         names = Person.objects.order_by('name')
         return render(request, 'alphabetical.html', {'names': names,})
+
+class Older(View):
+    def get(self, request):
+        ages = Person.objects.order_by('birthdate', 'name')
+        return render(request, 'older.html', {'ages': ages,})
+
+class Younger(View):
+    def get(self, request):
+        edad = Person.objects.order_by('-birthdate', 'name')
+        return render(request, 'younger.html', {'edad': edad,})
 
 class GenderType(View):
     def get(self, request):

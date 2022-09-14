@@ -7,5 +7,8 @@ urlpatterns = [
     path('table', views.idListView.as_view(), name='Table'),
     path('alphabetical', views.Alphabetically.as_view(), name='alphabetical'),
     path('gender', views.GenderType.as_view(), name='gender'),
-    path('results', views.results, name='results')
+    path('results', views.results, name='results'),
+    path('older', views.Older.as_view(), name='older'),
+    path('younger', views.Younger.as_view(), name='younger'),
+
 ]
