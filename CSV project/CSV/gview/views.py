@@ -47,17 +47,17 @@ class idListView(View):
 class Alphabetically(View):
     def get(self, request):
         names = Person.objects.order_by('name')
-        return render(request, 'alphabetical.html', {'names': names,})
+        return render(request, 'alphabetical.html', {'names': names})
 
 class Older(View):
     def get(self, request):
         ages = Person.objects.order_by('birthdate', 'name')
-        return render(request, 'older.html', {'ages': ages,})
+        return render(request, 'older.html', {'ages': ages})
 
 class Younger(View):
     def get(self, request):
         edad = Person.objects.order_by('-birthdate', 'name')
-        return render(request, 'younger.html', {'edad': edad,})
+        return render(request, 'younger.html', {'edad': edad})
 
 class GenderType(View):
     def get(self, request):
@@ -76,6 +76,9 @@ class GenderType(View):
         gender_list = ['Male', 'Female', 'Other']
         gender_number = [male_no, female_no, other_no]
         
-        counting = {'gender_list':gender_list, 'gender_number':gender_number}
+        counting = {
+            'gender_list': gender_list,
+            'gender_number': gender_number,
+        }
         return render(request, 'gendercount.html', counting)
     
