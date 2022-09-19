@@ -1,6 +1,7 @@
 from gview.models import Person
 import os
 import pandas as pd
+from scripts import s_load
 
 from django.views import View
 from django.shortcuts import render, redirect
@@ -9,26 +10,25 @@ from django.contrib import messages
 
 # Create your views here.
 class UploadFile(View):
-    def main(request):
+    def post(self, request, *args, **kwargs):
         context={}
-
-        if request.method == 'POST':
-            uploaded_file = request.FILES['load']
-
-            if uploaded_file.name.endswith('.csv'):
-                #save the file in data folder
-                savefile = FileSystemStorage()
-
-                name = savefile.save(uploaded_file.name, uploaded_file)
-                #know where to save the file
-                d = os.getcwd() #current directory of the project
-                file_directory = d+'\data\\'+name
-                readfile(file_directory)
-                return redirect(results)
-            else:
-                messages.warning(request, 'File was not uploaded. Please use csv file')
-        
-        return render(request, 'main.html')
+        uploaded_file = request.FILES['document']
+        if uploaded_file.name.endswith('.csv'):
+                    #save the file in data folder
+                d = os.path.join(os.getcwd(), 'data') 
+                savefile = FileSystemStorage(d)
+                file_directory = os.path.join(d, 'load.csv')
+                if os.path.exists(file_directory):
+                    os.remove(file_directory)
+                savefile.save('load.csv', uploaded_file)
+                    #know where to save the file
+                #current directory of the project
+                os.system('python3 manage.py runscript s_load')
+        else:
+            messages.warning(request, 'File was not uploaded. Please use csv file')
+            return render(request, 'main.html')
+            
+        return redirect('/table')
 
 def results(request):
     return render(request, 'results.html')

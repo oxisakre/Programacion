@@ -9,9 +9,9 @@
     <div class="row justify-content-center container">
         <div class="content">
             <h1> Please upload your csv file</h1>
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" action="/results">
                 {% csrf_token %}
-                <input type="file" name="load" id="document" required="required">
+                <input type="file" name="document" id="document" required="required">
                 <button id="submit" class="btn-primary"> Upload </button>
             </form>
 
@@ -21,7 +21,7 @@
     {% block messages %}
         {% if messages %}
             {% for message in messages %}
-                {{ messages }}
+                {{ message }}
             {% endfor %}
         {% endif %}
     {% endblock %}
