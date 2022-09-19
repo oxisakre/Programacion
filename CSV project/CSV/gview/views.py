@@ -1,8 +1,6 @@
-from dataclasses import dataclass
-from re import template
-from unittest import result
 from gview.models import Person
 import os
+import pandas as pd
 
 from django.views import View
 from django.shortcuts import render, redirect
@@ -25,6 +23,7 @@ class UploadFile(View):
                 #know where to save the file
                 d = os.getcwd() #current directory of the project
                 file_directory = d+'\data\\'+name
+                readfile(file_directory)
                 return redirect(results)
             else:
                 messages.warning(request, 'File was not uploaded. Please use csv file')
@@ -33,6 +32,12 @@ class UploadFile(View):
 
 def results(request):
     return render(request, 'results.html')
+
+def readfile(filename):
+    my_file = pd.read_csv(filename, sep='[:;,|_]', engine='python')
+    data = pd.DataFrame(data=my_file, index=None)
+    print(data)
+
 
 class MainView(View):
     template_name = None
@@ -63,15 +68,12 @@ class GenderType(View):
     def get(self, request):
         male_no = Person.objects.filter(gender='M').count()
         male_no = int(male_no)
-        print('Number of Male Are',male_no)
 
         female_no = Person.objects.filter(gender='F').count()
         female_no = int(female_no)
-        print('Number of Female Are',female_no)
         
         other_no = Person.objects.filter(gender='O').count()
         other_no = int(other_no)
-        print('Number of Other Are',other_no)
 
         gender_list = ['Male', 'Female', 'Other']
         gender_number = [male_no, female_no, other_no]
