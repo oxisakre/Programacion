@@ -1,8 +1,3 @@
-from datetime import date
-from datetime import datetime
-from email.utils import formatdate
-from inspect import GEN_CLOSED
-from unicodedata import name
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 

@@ -1,7 +1,6 @@
 from gview.models import Person
 import os
 import pandas as pd
-from scripts import s_load
 
 from django.views import View
 from django.shortcuts import render, redirect
@@ -25,18 +24,11 @@ class UploadFile(View):
                 #current directory of the project
                 os.system('python3 manage.py runscript s_load')
         else:
-            messages.warning(request, 'File was not uploaded. Please use csv file')
+            messages.warning(request, 'File was not uploaded. Please use csv file.')
             return render(request, 'main.html')
             
         return redirect('/table')
 
-def results(request):
-    return render(request, 'results.html')
-
-def readfile(filename):
-    my_file = pd.read_csv(filename, sep='[:;,|_]', engine='python')
-    data = pd.DataFrame(data=my_file, index=None)
-    print(data)
 
 
 class MainView(View):
